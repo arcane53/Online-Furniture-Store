@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GMHKEWCJ20"></script>
 <script>
@@ -13,7 +12,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Furniture Store</title>
+    <title>Moderna Home - Modern Furniture Store</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -40,7 +39,7 @@
         }
     </style>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Analytics 4 (gtag.js) -->
     <!-- REPLACE 'G-XXXXXXXXXX' with your actual GA4 Measurement ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
@@ -53,18 +52,10 @@
         'send_page_view': true, // Ensures page_view events are sent
       });
 
-      // Enable Enhanced Measurement automatically:
-      // This will track scrolls, outbound clicks, site search, video engagement, file downloads.
-      // Make sure 'Enhanced measurement' is turned ON in your GA4 property settings (Admin > Data Streams > Your Web Data Stream)
       console.log('GA4 Initialized. Remember to replace G-XXXXXXXXXX with your actual Measurement ID.');
     </script>
 </head>
 <body class="text-gray-800">
-  
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXLJ2LRR"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
     <nav class="bg-white shadow-sm py-4 px-6 fixed w-full z-10">
         <div class="container mx-auto flex justify-between items-center">
@@ -87,7 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h1 class="text-5xl font-extrabold text-gray-900 mb-6 leading-tight">Your Home, Reimagined.</h1>
                 <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">Discover modern and elegant furniture that transforms your living spaces into a haven of comfort and style.</p>
                 <img src="https://media.architecturaldigest.com/photos/6553d8773947b7f6f77b02c5/16:9/w_1920%2Cc_limit/Living%2520room_%2520Devon%2520Grace%2520Interiors_credit_%2520Dustin%2520Halleck_1.jpg" alt="Modern living room setup" class="w-full max-w-4xl mx-auto rounded-xl shadow-lg mb-10">
-                <button onclick="showPage('products'); gtag('event', 'hero_cta_click', { button_text: 'Shop All Collections' });" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                <button onclick="showPage('products'); if (typeof gtag === 'function') { gtag('event', 'hero_cta_click', { button_text: 'Shop All Collections' }); }" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
                     Shop All Collections
                 </button>
             </div>
@@ -101,7 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="flex flex-col md:flex-row justify-between items-center mb-8 space-y-4 md:space-y-0">
                     <div class="flex items-center space-x-3">
                         <label for="sort-by" class="text-gray-700 font-medium">Sort By:</label>
-                        <select id="sort-by" onchange="sortProducts(this.value); gtag('event', 'sort_applied', { sort_by: this.value });" class="border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        <select id="sort-by" onchange="sortProducts(this.value); if (typeof gtag === 'function') { gtag('event', 'sort_applied', { sort_by: this.value }); }" class="border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
                             <option value="name-asc">Name (A-Z)</option>
                             <option value="name-desc">Name (Z-A)</option>
                             <option value="price-asc">Price (Low to High)</option>
@@ -110,7 +101,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="flex items-center space-x-3">
                         <label for="filter-category" class="text-gray-700 font-medium">Filter By Category:</label>
-                        <select id="filter-category" onchange="filterProducts(this.value); gtag('event', 'filter_applied', { filter_type: 'category', filter_value: this.value });" class="border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        <select id="filter-category" onchange="filterProducts(this.value); if (typeof gtag === 'function') { gtag('event', 'filter_applied', { filter_type: 'category', filter_value: this.value }); }" class="border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
                             <option value="all">All Categories</option>
                             <option value="Sofas">Sofas</option>
                             <option value="Chairs">Chairs</option>
@@ -139,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-        <!-- Cart Page Section (using products page layout, slightly modified) -->
+        <!-- Cart Page Section -->
         <section id="cart-page" class="page-section hidden py-16 px-4">
             <div class="container mx-auto">
                 <h2 class="text-4xl font-bold text-gray-900 mb-10 text-center">Your Shopping Cart</h2>
@@ -272,7 +263,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             { id: 'BD008', name: 'King Platform Bed', category: 'Beds', price: 1100.00, imageUrl: 'https://www.royaloakindia.com/media/catalog/product/b/s/bs-120b_8s_9l_11_copy_1.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=300&width=480&canvas=480:300', description: 'Contemporary king-sized platform bed, no box spring required, sturdy and elegant.' },
         ];
 
-        let currentCart = []; // In-memory cart
+        // Initialize cart from localStorage or as empty array
+        let currentCart = JSON.parse(localStorage.getItem('cart')) || [];
         let currentProduct = null; // Stores the currently viewed product for PDP
 
         // --- DOM Elements ---
@@ -303,23 +295,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Update URL hash for simple navigation and better GA4 page_view tracking
             window.location.hash = pageId;
 
-            // Trigger a page_view event for GA4 when navigating between "pages"
-            // GA4's enhanced measurement should handle this, but explicitly calling it
-            // after a synthetic page change ensures the new page_path/title is captured if needed.
-            // For a single-page app, you might want to explicitly set page_path/page_title.
             let pageTitle = '';
+            let pageLocation = window.location.href; // Default to current URL
+            let pagePath = `/${pageId}`; // A cleaner path for GA4
+
             switch(pageId) {
-                case 'home': pageTitle = 'Homepage - Moderna Home'; break;
-                case 'products': pageTitle = 'Products - Moderna Home'; loadProducts(); break;
-                case 'product-detail': pageTitle = `${currentProduct ? currentProduct.name : 'Product Details'} - Moderna Home`; break;
-                case 'cart': pageTitle = 'Shopping Cart - Moderna Home'; updateCartDisplay(); break;
-                case 'checkout': pageTitle = 'Checkout - Moderna Home'; updateCheckoutSummary(); break;
+                case 'home':
+                    pageTitle = 'Homepage - Moderna Home';
+                    break;
+                case 'products':
+                    pageTitle = 'Products - Moderna Home';
+                    loadProducts(); // Ensure products are loaded when navigating to this page
+                    break;
+                case 'product-detail':
+                    // `currentProduct` should be set by `showProductDetail` before `showPage` is called for PDP
+                    pageTitle = `${currentProduct ? currentProduct.name : 'Product Details'} - Moderna Home`;
+                    // Create a more specific virtual URL for PDP
+                    pageLocation = `${window.location.origin}${window.location.pathname}#product-detail?id=${currentProduct ? currentProduct.id : ''}`;
+                    pagePath = `/product-detail/${currentProduct ? currentProduct.id : ''}`;
+                    break;
+                case 'cart':
+                    pageTitle = 'Shopping Cart - Moderna Home';
+                    updateCartDisplay(); // Refresh cart display
+                    break;
+                case 'checkout':
+                    pageTitle = 'Checkout - Moderna Home';
+                    updateCheckoutSummary(); // Refresh checkout summary
+                    break;
             }
-            gtag('event', 'page_view', {
-                page_title: pageTitle,
-                page_location: window.location.href, // Or construct a virtual URL based on pageId
-                // You can add more parameters here if needed for custom page views
-            });
+            // Trigger a page_view event for GA4
+            if (typeof gtag === 'function') { // Check if gtag is defined
+                gtag('event', 'page_view', {
+                    page_title: pageTitle,
+                    page_location: pageLocation,
+                    page_path: pagePath,
+                });
+                console.log(`GA4: page_view event sent for ${pageId} (Title: ${pageTitle}, Path: ${pagePath})`);
+            } else {
+                console.warn('gtag is not defined. Google Analytics may not be loaded.');
+            }
 
             window.scrollTo(0, 0); // Scroll to top on page change
         }
@@ -332,19 +346,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
 
+            const fragment = document.createDocumentFragment(); // Use DocumentFragment for performance
+
             productsToRender.forEach(product => {
-                const productCard = `
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer" onclick="showProductDetail('${product.id}')">
-                        <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h3>
-                            <p class="text-gray-600 text-sm mb-3">${product.category}</p>
-                            <p class="text-2xl font-bold text-blue-600">$${product.price.toFixed(2)}</p>
-                        </div>
+                const productCardDiv = document.createElement('div');
+                productCardDiv.className = "bg-white rounded-xl shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-xl cursor-pointer";
+                // Use an arrow function for the onclick handler to directly pass product.id
+                productCardDiv.onclick = () => showProductDetail(product.id);
+                productCardDiv.innerHTML = `
+                    <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h3>
+                        <p class="text-gray-600 text-sm mb-3">${product.category}</p>
+                        <p class="text-2xl font-bold text-blue-600">$${product.price.toFixed(2)}</p>
                     </div>
                 `;
-                productListingsDiv.innerHTML += productCard;
+                fragment.appendChild(productCardDiv);
             });
+            productListingsDiv.appendChild(fragment); // Append fragment to the DOM once
         }
 
         function loadProducts() {
@@ -383,6 +402,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const product = products.find(p => p.id === productId);
             if (!product) {
                 console.error('Product not found:', productId);
+                showMessageBox('Error', 'Product not found.');
                 return;
             }
             currentProduct = product; // Store current product for add to cart
@@ -407,24 +427,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             showPage('product-detail');
 
             // GA4: view_item event
-            gtag('event', 'view_item', {
-                currency: 'USD',
-                value: product.price,
-                items: [{
-                    item_id: product.id,
-                    item_name: product.name,
-                    item_category: product.category,
-                    price: product.price,
-                    quantity: 1 // Default quantity when viewing
-                }]
-            });
-            console.log('GA4: view_item event sent for', product.name);
+            if (typeof gtag === 'function') {
+                gtag('event', 'view_item', {
+                    currency: 'USD',
+                    value: product.price,
+                    items: [{
+                        item_id: product.id,
+                        item_name: product.name,
+                        item_category: product.category,
+                        price: product.price,
+                        quantity: 1 // Default quantity when viewing
+                    }]
+                });
+                console.log('GA4: view_item event sent for', product.name);
+            }
         }
 
         // --- Cart Logic ---
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(currentCart));
+        }
+
         function addToCart(product) {
             const quantityInput = document.getElementById('product-quantity');
-            const quantity = quantityInput ? parseInt(quantityInput.value) : 1; // Default to 1 if no input
+            const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+
+            if (quantity <= 0 || isNaN(quantity)) {
+                showMessageBox('Invalid Quantity', 'Please enter a valid quantity.');
+                return;
+            }
 
             const existingItemIndex = currentCart.findIndex(item => item.id === product.id);
 
@@ -433,27 +464,113 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             } else {
                 currentCart.push({ ...product, quantity: quantity });
             }
+            saveCart(); // Persist cart to local storage
             updateCartCount();
             showMessageBox('Added to Cart!', `${product.name} (x${quantity}) has been added to your cart.`);
 
             // GA4: add_to_cart event
-            gtag('event', 'add_to_cart', {
-                currency: 'USD',
-                value: product.price * quantity,
-                items: [{
-                    item_id: product.id,
-                    item_name: product.name,
-                    item_category: product.category,
-                    price: product.price,
-                    quantity: quantity
-                }]
-            });
-            console.log('GA4: add_to_cart event sent for', product.name);
+            if (typeof gtag === 'function') {
+                gtag('event', 'add_to_cart', {
+                    currency: 'USD',
+                    value: product.price * quantity,
+                    items: [{
+                        item_id: product.id,
+                        item_name: product.name,
+                        item_category: product.category,
+                        price: product.price,
+                        quantity: quantity
+                    }]
+                });
+                console.log('GA4: add_to_cart event sent for', product.name);
+            }
         }
 
         function updateCartCount() {
             const totalItems = currentCart.reduce((sum, item) => sum + item.quantity, 0);
             cartCountSpan.textContent = totalItems;
+        }
+
+        function updateCartItemQuantity(productId, newQuantityStr) {
+            const newQuantity = parseInt(newQuantityStr);
+            if (isNaN(newQuantity) || newQuantity < 0) {
+                showMessageBox('Invalid Quantity', 'Quantity must be a positive number.');
+                // Revert input to previous valid quantity if invalid input
+                updateCartDisplay(); // This will re-render with the correct quantity from currentCart
+                return;
+            }
+
+            const itemIndex = currentCart.findIndex(item => item.id === productId);
+
+            if (itemIndex > -1) {
+                const oldQuantity = currentCart[itemIndex].quantity;
+                currentCart[itemIndex].quantity = newQuantity;
+
+                if (newQuantity === 0) {
+                    removeFromCart(productId); // Remove if quantity becomes 0
+                } else {
+                    saveCart();
+                    updateCartDisplay();
+                    updateCartCount();
+
+                    // GA4: Event for quantity change
+                    if (typeof gtag === 'function') {
+                        if (newQuantity > oldQuantity) {
+                            gtag('event', 'add_to_cart', {
+                                currency: 'USD',
+                                value: currentCart[itemIndex].price * (newQuantity - oldQuantity),
+                                items: [{
+                                    item_id: currentCart[itemIndex].id,
+                                    item_name: currentCart[itemIndex].name,
+                                    item_category: currentCart[itemIndex].category,
+                                    price: currentCart[itemIndex].price,
+                                    quantity: newQuantity - oldQuantity
+                                }]
+                            });
+                            console.log('GA4: add_to_cart (quantity increase) event sent.');
+                        } else if (newQuantity < oldQuantity) {
+                            gtag('event', 'remove_from_cart', {
+                                currency: 'USD',
+                                value: currentCart[itemIndex].price * (oldQuantity - newQuantity),
+                                items: [{
+                                    item_id: currentCart[itemIndex].id,
+                                    item_name: currentCart[itemIndex].name,
+                                    item_category: currentCart[itemIndex].category,
+                                    price: currentCart[itemIndex].price,
+                                    quantity: oldQuantity - newQuantity
+                                }]
+                            });
+                            console.log('GA4: remove_from_cart (quantity decrease) event sent.');
+                        }
+                    }
+                }
+            }
+        }
+
+        function removeFromCart(productId) {
+            const removedItem = currentCart.find(item => item.id === productId);
+            if (removedItem) {
+                currentCart = currentCart.filter(item => item.id !== productId);
+                saveCart();
+                updateCartDisplay();
+                updateCartCount();
+                showMessageBox('Item Removed', `${removedItem.name} has been removed from your cart.`);
+
+                // GA4: remove_from_cart event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'remove_from_cart', {
+                        currency: 'USD',
+                        value: removedItem.price * removedItem.quantity,
+                        items: [{
+                            item_id: removedItem.id,
+                            item_name: removedItem.name,
+                            item_category: removedItem.category,
+                            price: removedItem.price,
+                            quantity: removedItem.quantity
+                        }]
+                    });
+                    console.log('GA4: remove_from_cart event sent for', removedItem.name);
+                }
+            }
         }
 
         function updateCartDisplay() {
@@ -479,9 +596,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             <div class="flex items-center space-x-6">
-                                <input type="number" value="${item.quantity}" min="1" class="w-16 p-2 border border-gray-300 rounded-lg text-center" onchange="updateCartItemQuantity('${item.id}', this.value)">
+                                <input type="number" value="${item.quantity}" min="0" class="w-16 p-2 border border-gray-300 rounded-lg text-center" onchange="updateCartItemQuantity('${item.id}', this.value)">
                                 <p class="text-lg font-bold text-gray-800">$${itemTotal.toFixed(2)}</p>
-                                <button onclick="removeFromCart('${item.id}')" class="text-red-600 hover:text-red-800 transition-colors">
+                                <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-300 rounded-full p-1">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                 </button>
                             </div>
@@ -493,46 +610,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             cartTotalSpan.textContent = `$${total.toFixed(2)}`;
         }
 
-        function updateCartItemQuantity(productId, newQuantity) {
-            const item = currentCart.find(i => i.id === productId);
-            if (item) {
-                const oldQuantity = item.quantity;
-                const quantity = parseInt(newQuantity);
-                if (quantity > 0) {
-                    item.quantity = quantity;
-                    // You might want to send an event here, e.g., 'cart_item_quantity_changed'
-                } else {
-                    removeFromCart(productId); // Remove if quantity becomes 0
-                }
-                updateCartDisplay();
-            }
-        }
-
-        function removeFromCart(productId) {
-            currentCart = currentCart.filter(item => item.id !== productId);
-            updateCartCount();
-            updateCartDisplay();
-            showMessageBox('Removed from Cart', 'Item has been removed from your cart.');
-            // You might want to send an event here, e.g., 'remove_from_cart'
-        }
-
         // --- Checkout Logic ---
         function updateCheckoutSummary() {
             checkoutSummaryItemsDiv.innerHTML = '';
             let subtotal = 0;
+
+            if (currentCart.length === 0) {
+                checkoutSummaryItemsDiv.innerHTML = '<p class="text-center text-gray-500">No items in cart.</p>';
+                checkoutSubtotalSpan.textContent = '$0.00';
+                checkoutShippingSpan.textContent = '$0.00';
+                checkoutTaxSpan.textContent = '$0.00';
+                checkoutGrandTotalSpan.textContent = '$0.00';
+                return;
+            }
+
             currentCart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
                 subtotal += itemTotal;
                 checkoutSummaryItemsDiv.innerHTML += `
-                    <div class="flex justify-between text-gray-700">
-                        <span>${item.name} (x${item.quantity})</span>
-                        <span>$${itemTotal.toFixed(2)}</span>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">${item.name} (x${item.quantity})</span>
+                        <span class="font-medium">$${itemTotal.toFixed(2)}</span>
                     </div>
                 `;
             });
 
-            const shipping = subtotal > 0 ? 50.00 : 0.00; // Flat shipping for simplicity
-            const taxRate = 0.08; // 8% tax
+            // Example calculations for shipping and tax
+            const shipping = subtotal > 500 ? 0.00 : 25.00; // Free shipping over $500
+            const taxRate = 0.08; // 8% sales tax
             const tax = subtotal * taxRate;
             const grandTotal = subtotal + shipping + tax;
 
@@ -543,97 +648,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         function trackBeginCheckout() {
-            // GA4: begin_checkout event
-            const checkoutValue = currentCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            gtag('event', 'begin_checkout', {
-                currency: 'USD',
-                value: checkoutValue,
-                items: currentCart.map(item => ({
-                    item_id: item.id,
-                    item_name: item.name,
-                    item_category: item.category,
-                    price: item.price,
-                    quantity: item.quantity
-                }))
-            });
-            console.log('GA4: begin_checkout event sent');
+            if (typeof gtag === 'function') {
+                gtag('event', 'begin_checkout', {
+                    currency: 'USD',
+                    value: currentCart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                    items: currentCart.map(item => ({
+                        item_id: item.id,
+                        item_name: item.name,
+                        item_category: item.category,
+                        price: item.price,
+                        quantity: item.quantity
+                    }))
+                });
+                console.log('GA4: begin_checkout event sent.');
+            }
         }
 
+        // Handle checkout form submission
         checkoutForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent actual form submission
+            event.preventDefault(); // Prevent default form submission
 
-            // Basic form validation
-            const requiredFields = ['fullName', 'email', 'address', 'city', 'state', 'zip', 'cardNumber', 'expMonth', 'expYear', 'cvv'];
-            let allFieldsFilled = true;
-            requiredFields.forEach(fieldId => {
-                const input = document.getElementById(fieldId);
-                if (!input.value.trim()) {
-                    allFieldsFilled = false;
-                    input.classList.add('border-red-500'); // Highlight empty field
-                } else {
-                    input.classList.remove('border-red-500');
-                }
-            });
-
-            if (!allFieldsFilled) {
-                showMessageBox('Missing Information', 'Please fill in all required fields to complete your order.');
+            // Basic client-side validation (HTML's 'required' handles some)
+            if (!this.checkValidity()) {
+                showMessageBox('Validation Error', 'Please fill in all required fields correctly.');
                 return;
             }
 
-            // Simulate purchase success
-            const transactionId = 'TRX-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-            const grandTotal = parseFloat(checkoutGrandTotalSpan.textContent.replace('$', ''));
+            if (currentCart.length === 0) {
+                showMessageBox('Cart Empty', 'Your cart is empty. Please add items before checking out.');
+                return;
+            }
+
+            // Generate a mock transaction ID
+            const transactionId = 'MODERNA-' + Date.now();
+            const totalValue = parseFloat(checkoutGrandTotalSpan.textContent.replace('$', ''));
             const shippingCost = parseFloat(checkoutShippingSpan.textContent.replace('$', ''));
             const taxAmount = parseFloat(checkoutTaxSpan.textContent.replace('$', ''));
 
+
             // GA4: purchase event
-            gtag('event', 'purchase', {
-                transaction_id: transactionId,
-                value: grandTotal,
-                currency: 'USD',
-                shipping: shippingCost,
-                tax: taxAmount,
-                items: currentCart.map(item => ({
-                    item_id: item.id,
-                    item_name: item.name,
-                    item_category: item.category,
-                    price: item.price,
-                    quantity: item.quantity
-                }))
-            });
-            console.log('GA4: purchase event sent for transaction:', transactionId);
+            if (typeof gtag === 'function') {
+                gtag('event', 'purchase', {
+                    transaction_id: transactionId,
+                    affiliation: 'Moderna Home Online Store', // Your store's affiliation
+                    value: totalValue,
+                    currency: 'USD',
+                    tax: taxAmount,
+                    shipping: shippingCost,
+                    items: currentCart.map(item => ({
+                        item_id: item.id,
+                        item_name: item.name,
+                        item_category: item.category,
+                        price: item.price,
+                        quantity: item.quantity
+                    }))
+                });
+                console.log('GA4: purchase event sent!', { transaction_id: transactionId });
+            }
 
-            showMessageBox('Order Placed!', `Your order #${transactionId} has been successfully placed. Thank you for your purchase!`);
 
-            // Clear the cart after purchase
+            // Simulate order processing
+            showMessageBox('Order Placed!', `Thank you for your purchase! Your order number is: <b>${transactionId}</b>.<br>A confirmation email has been sent to ${document.getElementById('email').value}.`);
+
+            // Clear cart and form after successful order
             currentCart = [];
+            saveCart();
             updateCartCount();
-            // Optionally redirect to home or order confirmation page
-            // showPage('home'); // Or a dedicated success page
+            updateCartDisplay();
+            checkoutForm.reset(); // Resets all form fields
+            // The hideMessageBox function will handle redirecting to home after dismissal
         });
 
-        // --- Message Box Logic ---
+
+        // --- Confirmation / Message Box ---
         function showMessageBox(title, content) {
-            messageTitle.textContent = title;
-            messageContent.textContent = content;
+            messageTitle.innerHTML = title; // Use innerHTML for potential bold tags
+            messageContent.innerHTML = content; // Use innerHTML for potential bold tags
             messageBox.classList.remove('hidden');
         }
 
         function hideMessageBox() {
             messageBox.classList.add('hidden');
+            // If coming from checkout, redirect to home after message box is dismissed
+            if (window.location.hash === '#checkout') {
+                showPage('home');
+            }
         }
 
         // --- Initial Load ---
+        // Check hash on load to navigate to the correct page
         document.addEventListener('DOMContentLoaded', () => {
-            // Check hash for initial page load (simple routing)
-            const initialPage = window.location.hash ? window.location.hash.substring(1) : 'home';
-            if (document.getElementById(`${initialPage}-page`)) {
-                showPage(initialPage);
-            } else {
-                showPage('home'); // Fallback to home
-            }
-            updateCartCount(); // Initialize cart count on load
+            updateCartCount(); // Load cart count from local storage on initial page load
+            const initialPage = window.location.hash.substring(1) || 'home';
+            showPage(initialPage);
+
+            // Listen for hash changes to navigate without full reloads (e.g., browser back/forward)
+            window.addEventListener('hashchange', () => {
+                const newPageId = window.location.hash.substring(1) || 'home';
+                // Only call showPage if the hash actually changed to a different "page"
+                // (showPage already handles updating the hash, so this prevents infinite loops)
+                if (document.getElementById(`${newPageId}-page`).classList.contains('hidden')) {
+                    showPage(newPageId);
+                }
+            });
         });
+
     </script>
 </body>
 </html>
