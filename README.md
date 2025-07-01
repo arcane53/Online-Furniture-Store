@@ -1,5 +1,4 @@
-# Online-Furniture-Store
-
+##Online Furniture Store
 Project Overview
 Welcome to the Online Furniture Store! This project is a modern, responsive e-commerce platform designed to showcase and sell a wide variety of furniture. It provides a seamless shopping experience for customers, allowing them to browse products, add items to their cart, and complete purchases securely. For administrators, it offers tools to manage products, orders, and customer information.
 
